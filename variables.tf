@@ -41,8 +41,7 @@ variable "consumer_name" {
 
 variable "label_orders" {
   type = object({
-    cloudwatch = optional(list(string)),
-    sns        = optional(list(string))
+    cloudwatch = optional(list(string))
   })
   default     = {}
   description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"
