@@ -1,0 +1,55 @@
+variable "aws_account_id" {
+  type        = string
+  description = "AWS Account ID"
+  default     = null
+}
+
+variable "aws_region" {
+  type        = string
+  description = "The AWS region"
+  default     = null
+}
+
+variable "alarm_description" {
+  type        = string
+  description = "The description for the alarm"
+  default     = null
+}
+
+variable "datapoints_to_alarm" {
+  type        = number
+  default     = 3
+  description = "The number of datapoints that must be breaching to trigger the alarm"
+}
+
+variable "evaluation_periods" {
+  type        = number
+  default     = 3
+  description = "The number of periods over which data is compared to the specified threshold"
+}
+
+variable "success_rate_threshold" {
+  type        = number
+  default     = 99
+  description = "Required percentage of successful requests"
+}
+
+variable "period" {
+  type        = number
+  default     = 60
+  description = "The period in seconds over which the specified statistic is applied"
+}
+
+variable "consumer_name" {
+  type        = string
+  description = "The name of the consumer"
+}
+
+variable "label_orders" {
+  type = object({
+    cloudwatch = optional(list(string)),
+    sns        = optional(list(string))
+  })
+  default     = {}
+  description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"
+}
