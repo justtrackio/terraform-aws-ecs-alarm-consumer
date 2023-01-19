@@ -1,18 +1,12 @@
-variable "aws_account_id" {
-  type        = string
-  description = "AWS Account ID"
-  default     = null
-}
-
-variable "aws_region" {
-  type        = string
-  description = "The AWS region"
-  default     = null
-}
-
 variable "alarm_description" {
   type        = string
   description = "The description for the alarm"
+  default     = null
+}
+
+variable "alarm_topic_arn" {
+  type        = string
+  description = "The ARN of the SNS topic to receive the alerts"
   default     = null
 }
 

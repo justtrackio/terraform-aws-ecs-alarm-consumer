@@ -1,16 +1,3 @@
-locals {
-  alarm_topic = "arn:aws:sns:${var.aws_region}:${var.aws_account_id}:${module.sns_label.id}-alarm"
-}
-
-module "sns_label" {
-  source  = "cloudposse/label/null"
-  version = "0.25.0"
-
-  label_order = var.label_orders.sns
-
-  context = module.this.context
-}
-
 module "cloudwatch_label" {
   source  = "cloudposse/label/null"
   version = "0.25.0"
@@ -69,8 +56,8 @@ resource "aws_cloudwatch_metric_alarm" "success_rate" {
     return_data = true
   }
 
-  alarm_actions = [local.alarm_topic]
-  ok_actions    = [local.alarm_topic]
+  alarm_actions = [var.alarm_topic_arn]
+  ok_actions    = [var.alarm_topic_arn]
 
   tags = module.this.tags
 }
