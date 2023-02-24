@@ -1,4 +1,4 @@
-module "cloudwatch_alarm" {
+module "example" {
   source = "../../"
 
   alarm_description      = "Alarm when success rate drops below 95%"

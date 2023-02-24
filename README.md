@@ -60,6 +60,7 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_cloudwatch_alarm_arn"></a> [cloudwatch\_alarm\_arn](#output\_cloudwatch\_alarm\_arn) | The ARN of the CloudWatch alarm |
-| <a name="output_cloudwatch_alarm_name"></a> [cloudwatch\_alarm\_name](#output\_cloudwatch\_alarm\_name) | The name of the CloudWatch alarm |
+| <a name="output_alarm_arn"></a> [alarm\_arn](#output\_alarm\_arn) | The ARN of the CloudWatch metric alarm |
+| <a name="output_alarm_id"></a> [alarm\_id](#output\_alarm\_id) | The ID of the CloudWatch metric alarm |
+| <a name="output_alarm_name"></a> [alarm\_name](#output\_alarm\_name) | The name of the CloudWatch metric alarm |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
