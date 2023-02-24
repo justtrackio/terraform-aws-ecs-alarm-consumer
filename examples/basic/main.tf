@@ -8,5 +8,5 @@ module "cloudwatch_alarm" {
   period                 = 300
   success_rate_threshold = 95
 
-  alarm_topic_arn       ="arn:aws:sns:us-east-1:123456789012:my-topic"
+  alarm_topic_arn = "arn:aws:sns:us-east-1:123456789012:my-topic"
 }

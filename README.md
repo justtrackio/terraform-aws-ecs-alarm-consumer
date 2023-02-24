@@ -58,5 +58,8 @@
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_cloudwatch_alarm_arn"></a> [cloudwatch\_alarm\_arn](#output\_cloudwatch\_alarm\_arn) | The ARN of the CloudWatch alarm |
+| <a name="output_cloudwatch_alarm_name"></a> [cloudwatch\_alarm\_name](#output\_cloudwatch\_alarm\_name) | The name of the CloudWatch alarm |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
