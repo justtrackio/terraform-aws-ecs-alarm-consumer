@@ -8,7 +8,7 @@ module "cloudwatch_label" {
   context = module.this.context
 }
 
-resource "aws_cloudwatch_metric_alarm" "success_rate" {
+resource "aws_cloudwatch_metric_alarm" "default" {
   count = module.this.enabled ? 1 : 0
 
   alarm_description   = var.alarm_description
