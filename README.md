@@ -23,7 +23,7 @@
 
 | Name | Type |
 |------|------|
-| [aws_cloudwatch_metric_alarm.success_rate](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_cloudwatch_metric_alarm.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
 
 ## Inputs
 
@@ -60,7 +60,7 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_alarm_arn"></a> [alarm\_arn](#output\_alarm\_arn) | The ARN of the CloudWatch metric alarm |
-| <a name="output_alarm_id"></a> [alarm\_id](#output\_alarm\_id) | The ID of the CloudWatch metric alarm |
 | <a name="output_alarm_name"></a> [alarm\_name](#output\_alarm\_name) | The name of the CloudWatch metric alarm |
+| <a name="output_arn"></a> [arn](#output\_arn) | The ARN of the CloudWatch metric alarm |
+| <a name="output_id"></a> [id](#output\_id) | The ID of the CloudWatch metric alarm |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
