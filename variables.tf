@@ -22,7 +22,7 @@ variable "evaluation_periods" {
   description = "The number of periods over which data is compared to the specified threshold"
 }
 
-variable "success_rate_threshold" {
+variable "threshold" {
   type        = number
   default     = 99
   description = "Required percentage of successful requests"

@@ -16,7 +16,7 @@ resource "aws_cloudwatch_metric_alarm" "success_rate" {
   datapoints_to_alarm = var.datapoints_to_alarm
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = var.evaluation_periods
-  threshold           = var.success_rate_threshold
+  threshold           = var.threshold
   treat_missing_data  = "notBreaching"
 
   metric_query {
