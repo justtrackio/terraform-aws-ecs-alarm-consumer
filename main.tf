@@ -1,6 +1,6 @@
 module "cloudwatch_label" {
-  source  = "cloudposse/label/null"
-  version = "0.25.0"
+  source  = "justtrackio/label/null"
+  version = "0.26.0"
 
   delimiter   = "/"
   label_order = var.label_orders.cloudwatch

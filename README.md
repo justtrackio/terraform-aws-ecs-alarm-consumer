@@ -16,7 +16,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_cloudwatch_label"></a> [cloudwatch\_label](#module\_cloudwatch\_label) | cloudposse/label/null | 0.25.0 |
+| <a name="module_cloudwatch_label"></a> [cloudwatch\_label](#module\_cloudwatch\_label) | justtrackio/label/null | 0.26.0 |
 | <a name="module_this"></a> [this](#module\_this) | justtrackio/label/null | 0.26.0 |
 
 ## Resources
