@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/justtrackio/terraform-aws-ecs-alarm-consumer/compare/v1.0.0...v1.0.1) (2023-05-15)
+
+
+### Bug Fixes
+
+* adjust_versions_variables_outputs ([#9](https://github.com/justtrackio/terraform-aws-ecs-alarm-consumer/issues/9)) ([852a4e7](https://github.com/justtrackio/terraform-aws-ecs-alarm-consumer/commit/852a4e7cb864248b62c3d222ba83cc8d1aba0ce5))
+
 ## 1.0.0 (2023-02-28)
 
 
