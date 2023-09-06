@@ -1,3 +1,7 @@
+locals {
+  alarm_topic_arn = var.alarm_topic_arn != null ? var.alarm_topic_arn : "arn:aws:sns:${module.this.aws_region}:${module.this.aws_account_id}:${module.this.environment}-alarms"
+}
+
 module "cloudwatch_label" {
   source  = "justtrackio/label/null"
   version = "0.26.0"
@@ -56,8 +60,8 @@ resource "aws_cloudwatch_metric_alarm" "default" {
     return_data = true
   }
 
-  alarm_actions = [var.alarm_topic_arn]
-  ok_actions    = [var.alarm_topic_arn]
+  alarm_actions = [local.alarm_topic_arn]
+  ok_actions    = [local.alarm_topic_arn]
 
   tags = module.this.tags
 }
