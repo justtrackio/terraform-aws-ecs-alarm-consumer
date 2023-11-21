@@ -16,7 +16,7 @@ resource "aws_cloudwatch_metric_alarm" "default" {
   count = module.this.enabled ? 1 : 0
 
   alarm_description   = var.alarm_description
-  alarm_name          = "${module.this.id}-success-rate"
+  alarm_name          = "${module.this.id}-${var.consumer_name}-success-rate"
   datapoints_to_alarm = var.datapoints_to_alarm
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = var.evaluation_periods
