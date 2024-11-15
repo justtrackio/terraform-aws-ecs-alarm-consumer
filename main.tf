@@ -1,5 +1,18 @@
 locals {
   alarm_topic_arn = var.alarm_topic_arn != null ? var.alarm_topic_arn : "arn:aws:sns:${module.this.aws_region}:${module.this.aws_account_id}:${module.this.environment}-alarms"
+
+  alarm_levels = {
+    warning = {
+      alarm_priority      = var.alarm_priority_warning
+      datapoints_to_alarm = var.datapoints_to_alarm
+      evaluation_periods  = var.evaluation_periods
+    }
+    high = {
+      alarm_priority      = var.alarm_priority_high
+      datapoints_to_alarm = floor(3600 / var.period)
+      evaluation_periods  = floor(3600 / var.period)
+    }
+  }
 }
 
 module "cloudwatch_label" {
@@ -13,13 +26,15 @@ module "cloudwatch_label" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "default" {
-  count = module.this.enabled ? 1 : 0
+  for_each = module.this.enabled ? local.alarm_levels : {}
 
-  alarm_description   = var.alarm_description
-  alarm_name          = "${module.this.id}-${var.consumer_name}-success-rate"
-  datapoints_to_alarm = var.datapoints_to_alarm
+  alarm_description = jsonencode(merge({
+    Priority = each.value.alarm_priority
+  }, jsondecode(var.alarm_description)))
+  alarm_name          = "${module.this.id}-${var.consumer_name}-success-rate-${each.value.alarm_priority}"
+  datapoints_to_alarm = each.value.datapoints_to_alarm
   comparison_operator = "LessThanThreshold"
-  evaluation_periods  = var.evaluation_periods
+  evaluation_periods  = each.value.evaluation_periods
   threshold           = var.threshold
   treat_missing_data  = "notBreaching"
 
