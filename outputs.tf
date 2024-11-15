@@ -1,14 +1,23 @@
-output "alarm_name" {
-  value       = try(aws_cloudwatch_metric_alarm.default[0].alarm_name)
-  description = "The name of the CloudWatch metric alarm"
+output "alarm_arns" {
+  value = {
+    for level, alarm in aws_cloudwatch_metric_alarm.default :
+    level => alarm.arn
+  }
+  description = "A map of CloudWatch metric alarm ARNs keyed by alarm level"
 }
 
-output "arn" {
-  value       = try(aws_cloudwatch_metric_alarm.default[0].arn)
-  description = "The ARN of the CloudWatch metric alarm"
+output "alarm_ids" {
+  value = {
+    for level, alarm in aws_cloudwatch_metric_alarm.default :
+    level => alarm.id
+  }
+  description = "A map of CloudWatch metric alarm IDs keyed by alarm level"
 }
 
-output "id" {
-  value       = try(aws_cloudwatch_metric_alarm.default[0].id)
-  description = "The ID of the CloudWatch metric alarm"
+output "alarm_names" {
+  value = {
+    for level, alarm in aws_cloudwatch_metric_alarm.default :
+    level => alarm.alarm_name
+  }
+  description = "A map of CloudWatch metric alarm names keyed by alarm level"
 }
