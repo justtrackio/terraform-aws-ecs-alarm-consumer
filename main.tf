@@ -2,16 +2,31 @@ locals {
   alarm_topic_arn = var.alarm_topic_arn != null ? var.alarm_topic_arn : "arn:aws:sns:${module.this.aws_region}:${module.this.aws_account_id}:${module.this.environment}-alarms"
 
   alarm_levels = {
+    info = {
+      alarm_priority      = "info"
+      datapoints_to_alarm = var.datapoints_to_alarm
+      evaluation_periods  = var.evaluation_periods
+    }
     warning = {
-      alarm_priority      = var.alarm_priority_warning
+      alarm_priority      = "warning"
       datapoints_to_alarm = var.datapoints_to_alarm
       evaluation_periods  = var.evaluation_periods
     }
     high = {
-      alarm_priority      = var.alarm_priority_high
+      alarm_priority      = "high"
       datapoints_to_alarm = floor(3600 / var.period)
       evaluation_periods  = floor(3600 / var.period)
     }
+    critical = {
+      alarm_priority      = "critical"
+      datapoints_to_alarm = var.datapoints_to_alarm
+      evaluation_periods  = var.evaluation_periods
+    }
+  }
+
+  selected_alarm_levels = {
+    for level in var.alarm_levels :
+    level => local.alarm_levels[level]
   }
 }
 
@@ -26,11 +41,11 @@ module "cloudwatch_label" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "default" {
-  for_each = module.this.enabled ? local.alarm_levels : {}
+  for_each = module.this.enabled ? local.selected_alarm_levels : {}
 
   alarm_description = jsonencode(merge({
     Priority = each.value.alarm_priority
-  }, jsondecode(var.alarm_description)))
+  }, var.alarm_description))
   alarm_name          = "${module.this.id}-${var.consumer_name}-success-rate-${each.value.alarm_priority}"
   datapoints_to_alarm = each.value.datapoints_to_alarm
   comparison_operator = "LessThanThreshold"

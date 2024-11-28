@@ -30,9 +30,8 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_additional_tag_map"></a> [additional\_tag\_map](#input\_additional\_tag\_map) | Additional key-value pairs to add to each map in `tags_as_list_of_maps`. Not added to `tags` or `id`.<br/>This is for some rare cases where resources want additional configuration of tags<br/>and therefore take a list of maps with tag key, value, and additional configuration. | `map(string)` | `{}` | no |
-| <a name="input_alarm_description"></a> [alarm\_description](#input\_alarm\_description) | The description for the alarm | `string` | `null` | no |
-| <a name="input_alarm_priority_high"></a> [alarm\_priority\_high](#input\_alarm\_priority\_high) | Whether to create a high priority alarm | `string` | `"high"` | no |
-| <a name="input_alarm_priority_warning"></a> [alarm\_priority\_warning](#input\_alarm\_priority\_warning) | Whether to create a warning priority alarm | `string` | `"warning"` | no |
+| <a name="input_alarm_description"></a> [alarm\_description](#input\_alarm\_description) | The description for the alarm | `any` | `null` | no |
+| <a name="input_alarm_levels"></a> [alarm\_levels](#input\_alarm\_levels) | List of alarm levels to enable (e.g., ['info', 'warning', 'high', 'critical']) | `list(string)` | <pre>[<br/>  "warning",<br/>  "high"<br/>]</pre> | no |
 | <a name="input_alarm_topic_arn"></a> [alarm\_topic\_arn](#input\_alarm\_topic\_arn) | The ARN of the SNS topic to receive the alerts | `string` | `null` | no |
 | <a name="input_attributes"></a> [attributes](#input\_attributes) | ID element. Additional attributes (e.g. `workers` or `cluster`) to add to `id`,<br/>in the order they appear in the list. New attributes are appended to the<br/>end of the list. The elements of the list are joined by the `delimiter`<br/>and treated as a single ID element. | `list(string)` | `[]` | no |
 | <a name="input_aws_account_id"></a> [aws\_account\_id](#input\_aws\_account\_id) | AWS account id | `string` | `null` | no |
