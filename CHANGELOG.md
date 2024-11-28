@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/justtrackio/terraform-aws-ecs-alarm-consumer/compare/v1.2.0...v1.2.1) (2024-11-28)
+
+
+### Bug Fixes
+
+* add more alarm levels ([#63](https://github.com/justtrackio/terraform-aws-ecs-alarm-consumer/issues/63)) ([4d77ae0](https://github.com/justtrackio/terraform-aws-ecs-alarm-consumer/commit/4d77ae0fcb3c831f1350ff962f7d0ec1938a2a67))
+
 ## [1.2.0](https://github.com/justtrackio/terraform-aws-ecs-alarm-consumer/compare/v1.1.0...v1.2.0) (2024-11-15)
 
 
